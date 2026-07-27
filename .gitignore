@@ -1,0 +1,26 @@
+# Python cache/build output
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local environment and secrets
+.env
+mysql-init.txt
+
+# TLS/private certificate material
+*.key
+*.crt
+*.csr
+*.srl
+
+# Runtime device state
+devices1.json
+devicesa_status.json
+
+# Editor settings
+.vscode/
