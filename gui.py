@@ -80,8 +80,12 @@ main.topic_combo = ttk.Combobox(
     width=30)
 
 main.topic_combo.grid(row=0,column=5,padx=2, pady=2)
+<<<<<<< HEAD
 if main.databases:
     main.topic_combo.current(0)
+=======
+main.topic_combo.current(0)
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
 
 tk.Button(
     publish_frame,
@@ -298,4 +302,8 @@ root.protocol(
     )
 )
 
+<<<<<<< HEAD
 root.mainloop()
+=======
+root.mainloop()
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11

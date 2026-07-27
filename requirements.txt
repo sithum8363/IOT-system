@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 mysql-connector-python==9.7.0
 paho-mqtt==2.1.0
 python-dotenv==1.0.1
+=======
+mysql_connector_repackaged==0.3.1
+paho_mqtt==2.1.0
+python-dotenv==1.2.2
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11

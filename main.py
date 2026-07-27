@@ -7,6 +7,7 @@ import subprocess
 import json
 import threading
 from dotenv import load_dotenv
+<<<<<<< HEAD
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 print(os.path.join(BASE_DIR,".env.example"))
@@ -29,6 +30,14 @@ try:
     db = mysql.connector.connect(
         host=os.getenv("DB_HOST", "localhost"),
         user=os.getenv("DB_USER", "root"),
+=======
+load_dotenv()
+# ====================== Database ======================
+try:
+    db = mysql.connector.connect(
+        host="localhost",
+        user="root",
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
         password=os.getenv("DB_PASSWORD"),
         database=os.getenv("DB_NAME")
     )
@@ -58,6 +67,7 @@ select_db     =None
 topic_combo = None
 table_name="sensor_data"
 
+<<<<<<< HEAD
 print(_project_path(os.getenv("BAT_FILE"), "runfile.bat"),
 _project_path(os.getenv("CA_CERT"), "ca.crt"),
 os.getenv("MOSQUITTO_SERVICE", "mosquitto")
@@ -70,6 +80,12 @@ MQTT_PORT = int(os.getenv("MQTT_PORT", "8883"))
 MOSQUITTO_SERVICE = os.getenv("MOSQUITTO_SERVICE", "mosquitto")
 DEVICE_FILE   = _project_path(os.getenv("DEVICE_FILE"), "devices1.json")
 DEVICE_s_FILE = _project_path(os.getenv("DEVICE_STATUS_FILE"), "devicesa_status.json")
+=======
+ca_cert_path  =  os.getenv("CA_CERT")
+BAT_FILE = os.getenv("BAT_FILE")
+DEVICE_FILE   = "devices1.json"
+DEVICE_s_FILE = "devicesa_status.json"
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
 
 # How many seconds of silence before a device is marked Offline
 OFFLINE_TIMEOUT = 2
@@ -151,9 +167,12 @@ def update_device_status_in_file(board, status):
 # ─────────────────────────── UI table helpers ────────────────────────────────
 def load_databases():
     global databases
+<<<<<<< HEAD
     if cursor is None:
         databases = []
         return databases
+=======
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
 
     cursor.execute("SHOW TABLES")
     databases = [table[0] for table in cursor.fetchall()]
@@ -165,9 +184,12 @@ def load_databases():
 
 def create_db():
     global dbenter
+<<<<<<< HEAD
     if cursor is None:
         log("Database not connected")
         return
+=======
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
     db_name = dbenter.get()
 
     if db_name:
@@ -181,6 +203,10 @@ def create_db():
         """)
         db.commit()
         load_databases()
+<<<<<<< HEAD
+=======
+        databases = [table[0] for table in cursor.fetchall()]
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
         print(databases)
 
 
@@ -439,14 +465,22 @@ def on_connect(client, userdata, flags, rc, properties=None):
 # ─────────────────────────── MQTT lifecycle ──────────────────────────────────
 
 def configfile():
+<<<<<<< HEAD
     if not BAT_FILE or not os.path.exists(BAT_FILE):
         raise FileNotFoundError(f"Mosquitto batch file not found: {BAT_FILE}")
     subprocess.Popen([BAT_FILE], cwd=BASE_DIR)
+=======
+    subprocess.Popen(BAT_FILE)
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
     print("working conf")
 
 
 def stop():
+<<<<<<< HEAD
     subprocess.run(["net", "stop", MOSQUITTO_SERVICE])
+=======
+    subprocess.run(["net", "stop", "mosquitto"])
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
     print("stop")
 
 
@@ -474,7 +508,11 @@ def start_mqtt():
         client.on_connect = on_connect
         client.on_message = on_message
         log("Connecting to broker...")
+<<<<<<< HEAD
         client.connect(MQTT_HOST, MQTT_PORT, 60)
+=======
+        client.connect("localhost", 8883, 60)
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
         running = True
         client.loop_start()
         _start_heartbeat()
@@ -551,4 +589,8 @@ def log(message):
         log_text.see(tk.END)
         log_text.config(state=tk.DISABLED)
 
+<<<<<<< HEAD
     log_text.after(0, _write)
+=======
+    log_text.after(0, _write)
+>>>>>>> bff10e62845c2bbf54c03578d85327a7f796ab11
