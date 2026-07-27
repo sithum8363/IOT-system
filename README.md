@@ -251,3 +251,5 @@ git commit -m "Initial commit"
 - Never commit `.env`, certificates, or the MySQL password.
 - If you created a dedicated MySQL user (recommended, section 2), avoid using `root` in `.env` for day-to-day running.
 - Restrict port `8883` at the firewall/router level if the broker doesn't need to be reachable outside your local network.
+#   I O T - s y s t e m _ u o p  
+ 
