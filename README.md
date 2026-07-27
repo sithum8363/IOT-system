@@ -4,6 +4,7 @@ Python Tkinter desktop app for monitoring ESP32/IoT devices over MQTT, storing r
 
 ## Features
 
+
 - Starts a local Mosquitto MQTT broker with TLS on port `8883`
 - Connects to MQTT with `paho-mqtt`
 - Subscribes to `#` (all topics) and stores every message in a MySQL table
@@ -251,5 +252,6 @@ git commit -m "Initial commit"
 - Never commit `.env`, certificates, or the MySQL password.
 - If you created a dedicated MySQL user (recommended, section 2), avoid using `root` in `.env` for day-to-day running.
 - Restrict port `8883` at the firewall/router level if the broker doesn't need to be reachable outside your local network.
-#   I O T - s y s t e m _ u o p  
+#   I O T - s y s t e m _ u o p 
+ 
  
